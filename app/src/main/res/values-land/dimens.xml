@@ -1,0 +1,4 @@
+<resources>
+    <fraction name="guideline_left_percentage">0.2</fraction>
+    <fraction name="guideline_right_percentage">0.8</fraction>
+</resources>

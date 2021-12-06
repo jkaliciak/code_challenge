@@ -1,0 +1,11 @@
+<resources>
+    <!--  Overlays  -->
+    <style name="ThemeOverlay.App.Toolbar" parent="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
+        <item name="popupTheme">@style/ThemeOverlay.App.Toolbar.PopupTheme</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Toolbar.PopupTheme" parent="">
+        <item name="android:textColorPrimary">?attr/colorOnSurface</item>
+    </style>
+
+</resources>

@@ -1,0 +1,50 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+
+    ext.kotlin_version = '1.5.30'
+    ext.kotlin_coroutines_version = '1.5.2'
+    ext.android_gradle_plugin_version = '7.0.3'
+
+    ext.compile_sdk_version = 31
+    ext.min_sdk_version = 26
+    ext.target_sdk_version = 31
+
+    ext.swipe_refresh_layout_version = '1.1.0'
+
+    ext.dagger_version = '2.40.4'
+    ext.androidx_room = '2.3.0'
+
+    ext.okhttp_version = '4.9.3'
+    ext.retrofit_version = '2.9.0'
+    ext.moshi_version = '1.12.0'
+    ext.glide_version = '4.12.0'
+
+    ext.threeten_bp_version = '1.5.1'
+    ext.threeten_bp_android_version = '1.3.1'
+    ext.timber_version = '5.0.1'
+    ext.leak_canary_version = '2.7'
+
+    ext.kotest_version = '5.0.1'
+    ext.mockk_version = '1.12.1'
+    ext.turbine_version = '0.7.0'
+    ext.junit = '4.13.2'
+    ext.junit_jupiter = '5.7.0'
+    ext.coroutines_test = '1.5.0'
+
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:$android_gradle_plugin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$dagger_version"
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

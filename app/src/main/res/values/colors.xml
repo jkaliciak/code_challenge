@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="guardsmanRed">#d50000</color>
+    <color name="sangria">#9b0000</color>
+    <color name="outrageousOrange">#ff5131</color>
+    <color name="pizazz">#ff9100</color>
+    <color name="blazeOrange">#ff6f00</color>
+    <color name="white">#ffffff</color>
+    <color name="alabaster">#fafafa</color>
+    <color name="gallery">#eeeeee</color>
+    <color name="mineShaftDark">#212121</color>
+    <color name="mineShaftLight">#373737</color>
+    <color name="tundora">#424242</color>
+    <color name="codGray">#1b1b1b</color>
+    <color name="black">#000000</color>
+</resources>

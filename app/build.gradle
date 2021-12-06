@@ -1,0 +1,123 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'dagger.hilt.android.plugin'
+    id 'io.gitlab.arturbosch.detekt' version '1.19.0'
+}
+
+android {
+    compileSdk compile_sdk_version
+
+    defaultConfig {
+        applicationId "dev.jakal.codechallenge"
+        minSdk min_sdk_version
+        targetSdk target_sdk_version
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
+
+        buildConfigField "int", "DB_VERSION", "1"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    android {
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_11
+            targetCompatibility JavaVersion.VERSION_11
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    kapt {
+        correctErrorTypes true
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+
+    testOptions {
+        unitTests {
+            all {
+                useJUnitPlatform()
+            }
+        }
+        unitTests.returnDefaultValues = true
+    }
+
+    detekt {
+        debug = true
+        ignoreFailures = false
+        basePath = projectDir
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutines_version"
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipe_refresh_layout_version"
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+
+    implementation "com.google.dagger:hilt-android:$dagger_version"
+    kapt "com.google.dagger:hilt-compiler:$dagger_version"
+
+    implementation "androidx.room:room-runtime:$androidx_room"
+    kapt "androidx.room:room-compiler:$androidx_room"
+    implementation "androidx.room:room-rxjava3:$androidx_room"
+    testImplementation "androidx.room:room-testing:$androidx_room"
+    implementation "androidx.room:room-ktx:$androidx_room"
+
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+
+    implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
+
+    implementation "com.jakewharton.threetenabp:threetenabp:$threeten_bp_android_version"
+
+    implementation "com.jakewharton.timber:timber:$timber_version"
+
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leak_canary_version"
+    debugImplementation "com.squareup.leakcanary:plumber-android:$leak_canary_version"
+
+    testImplementation "io.kotest:kotest-runner-junit5:$kotest_version"
+    testImplementation "io.kotest:kotest-assertions-core:$kotest_version"
+    testImplementation "io.mockk:mockk:$mockk_version"
+    testImplementation "app.cash.turbine:turbine:$turbine_version"
+    testImplementation("org.threeten:threetenbp:$threeten_bp_version") {
+        exclude group: 'com.jakewharton.threetenabp', module: 'threetenabp'
+    }
+}

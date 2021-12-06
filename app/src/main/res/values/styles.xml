@@ -1,0 +1,12 @@
+<resources>
+
+    <!-- Widget styles -->
+    <style name="Widget.App.Toolbar" parent="@style/Widget.MaterialComponents.Toolbar.Primary">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="android:theme">@style/ThemeOverlay.App.Toolbar</item>
+        <item name="titleTextAppearance">@style/TextAppearance.Toolbar</item>
+    </style>
+
+    <style name="Widget.App.BottomNavigationView" parent="@style/Widget.MaterialComponents.BottomNavigationView.Colored"></style>
+
+</resources>

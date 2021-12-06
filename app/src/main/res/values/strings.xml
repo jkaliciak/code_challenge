@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Code Challenge</string>
+
+    <string name="title_events">Events</string>
+    <string name="title_schedule">Schedule</string>
+    <string name="event_image_content_description">Image thematically connected with the event</string>
+    <string name="general_error_message">Oops, something went wrong</string>
+</resources>
